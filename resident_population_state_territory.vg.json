@@ -1,0 +1,44 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "data/resident_population_state_territory.csv",
+      "format": {"type": "csv"}
+    },
+    "width": 600,
+    "height": 500,
+    "transform": [
+      {"filter": "datum.state !== 'All States'"}
+    ],
+    "mark": {
+      "type": "circle",
+      "opacity": 0.8,
+      "stroke": "black",
+      "strokeWidth": 1
+    },
+    "encoding": {
+      "x": {
+        "field": "year",
+        "type": "temporal",
+        "axis": {"grid": false}
+      },
+      "y": {
+        "field": "state",
+        "type": "nominal",
+        "axis": {"title": "", "labelFontSize": 12}
+      },
+      "size": {
+        "field": "proportion",
+        "type": "quantitative",
+        "title": "Proportion (%)",
+        "legend": {"clipHeight": 10},
+        "scale": {"rangeMax": 100}
+      },
+      "color": {
+        "field": "state",
+        "type": "nominal",
+        "legend": null
+      }
+    }
+  }
+  
+  

@@ -1,0 +1,53 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "projection": {
+      "type": "equirectangular"
+    },
+    "layer": [
+      {
+        "data": {
+          "url": "https://gist.githubusercontent.com/markmarkoh/2969317/raw/your_gist_file_name.js",
+          "format": {
+            "type": "topojson",
+            "feature": "countries"
+          }
+        },
+        "mark": {
+          "type": "geoshape",
+          "fill": "#ddd",
+          "stroke": "white"
+        }
+      },
+      {
+        "mark": "geoshape",
+        "transform": [
+          {
+            "lookup": "id", 
+            "from": {
+              "data": {
+                "url": "data/resident_population_country.csv",
+                "format": {"type": "csv"}
+              },
+              "key": "Country code",
+              "fields": ["2023(000)"]
+            }
+          }
+        ],
+        "encoding": {
+          "color": {
+            "field": "2023(000)",
+            "type": "quantitative",
+            "scale": {
+              "scheme": "blues"
+            }
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal", "title": "Country"},
+            {"field": "2023(000)", "type": "quantitative", "title": "Population (2023)"}
+          ]
+        }
+      }
+    ],
+    "title": "Overseas-born Population by Country of Birth (2023)"
+  }
+  
