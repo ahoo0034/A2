@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A population pyramid for the US in 2000.",
-  "data": { "url": "data/Australia's_population_born_Australia_overseas.csv"},
+  "data": { "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/Data/Australia's_population_born_Australia_overseas.csv"},
  
   "spacing": 0,
   "hconcat": [{
