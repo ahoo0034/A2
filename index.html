@@ -19,6 +19,12 @@
     <h2>Population Change Over Time</h2>
     <div id="population_change"></div>
 
+    <h2>Population Change Over Time</h2>
+    <div id="birth_population_female"></div>
+
+    <h2>Population Change Over Time</h2>
+    <div id="birth_population_male"></div>
+
     <script type="text/javascript">
         // Embed the first Vega-Lite chart (population_by_country.vg.json)
         vegaEmbed('#population_by_country', 'population_by_country.vg.json').then(function(result) {
@@ -30,11 +36,11 @@
             console.log("Population Change graph loaded successfully.");
         }).catch(console.error);
 
-        vegaEmbed('#birth_population_female.vg', 'birth_population_female.vg.json').then(function(result) {
+        vegaEmbed('#birth_population_female', 'birth_population_female.vg.json').then(function(result) {
             console.log("Population Change graph loaded successfully.");
         }).catch(console.error);
 
-        vegaEmbed('#birth_population_male.vg', 'birth_population_male.vg.vg.json').then(function(result) {
+        vegaEmbed('#birth_population_male', 'birth_population_male.vg.json').then(function(result) {
             console.log("Population Change graph loaded successfully.");
         }).catch(console.error);
     </script>
