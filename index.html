@@ -114,7 +114,7 @@
     <script type="text/javascript">
         // Function to load external JSON specification
         async function fetchSpec() {
-          const response = await fetch('resident_population_state_territory.vg.json');
+          const response = await fetch('json/resident_population_state_territory.vg.json');
           return response.json(); // Return the parsed JSON
         }
       
@@ -150,46 +150,41 @@
       </script>
     <script type="text/javascript">
       // Function to update the Vega-Lite chart
-      function updateChart() {
-          // Re-render the Vega-Lite chart using the current parameters
-          vegaEmbed('#population_change', 'population_change.vg.json').then(function(result) {
-          }).catch(console.error);
-      }
-  
-      const minSlider = document.querySelector('input[name="MinYear"]');
-      const maxSlider = document.querySelector('input[name="MaxYear"]');
+        function updateChart() {
+            // Re-render the Vega-Lite chart using the current parameters
+            vegaEmbed('#population_by_country', 'json/population_by_country.vg.json').then(function(result) {
+            }).catch(console.error);
+        }
+    
+        const minSlider = document.querySelector('input[name="MinYear"]');
+        const maxSlider = document.querySelector('input[name="MaxYear"]');
 
-      // Add event listeners for slider changes
-      minSlider.addEventListener('input', updateChart);
-      maxSlider.addEventListener('input', updateChart);
-  </script>
+        // Add event listeners for slider changes
+        minSlider.addEventListener('input', updateChart);
+        maxSlider.addEventListener('input', updateChart);
+    </script>
   
 
     <script type="text/javascript">
-        // Embed the first Vega-Lite chart (population_by_country.vg.json)
-        vegaEmbed('#population_by_country', 'population_by_country.vg.json').then(function(result) {
-            console.log("Population by Country graph loaded successfully.");
+        vegaEmbed('#population_change', 'json/population_change.vg.json').then(function(result) {
         }).catch(console.error);
 
-        vegaEmbed('#graph', 'graph.vg.json').then(function(result) {
-            console.log("Proportion by Country loaded successfully.");
+        vegaEmbed('#graph', 'json/graph.vg.json').then(function(result) {
         }).catch(console.error);
 
-        // Embed the second Vega-Lite chart (population_change.vg.json)
-        // vegaEmbed('#population_change', 'population_change.vg.json').then(function(result) {
-        //     console.log("Population Change graph loaded successfully.");
-        // }).catch(console.error);
-
-        vegaEmbed('#birth_population_female', 'birth_population_female.vg.json').then(function(result) {
-            console.log("Population Change graph loaded successfully.");
+        vegaEmbed('#birth_population_female', 'json/birth_population_female.vg.json').then(function(result) {
         }).catch(console.error);
 
-        vegaEmbed('#birth_population_male', 'birth_population_male.vg.json').then(function(result) {
-            console.log("Population Change graph loaded successfully.");
+        vegaEmbed('#birth_population_male', 'json/birth_population_male.vg.json').then(function(result) {
         }).catch(console.error);
 
-        vegaEmbed('#births_deaths', 'births_deaths.vg.json').then(function(result) {
-            console.log("resident_population_state_territory graph loaded successfully.");
+        vegaEmbed('#population_by_country', 'json/population_by_country.vg.json').then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#resident_population_state_territory', 'json/resident_population_state_territory.vg.json').then(function(result) {
+        }).catch(console.error);
+
+        vegaEmbed('#births_deaths', 'json/births_deaths.vg.json').then(function(result) {
         }).catch(console.error);
     </script>
 </body>
