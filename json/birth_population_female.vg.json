@@ -1,0 +1,84 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A population pyramid for the US in 2000.",
+  "data": { 
+    "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/data/Australia's_population_born_Australia_overseas.csv"
+  },
+  "spacing": 0,
+  "hconcat": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "Age group(years)", 
+          "axis": null, 
+          "sort": "descending"
+        },
+        "x": {
+          "aggregate": "sum", 
+          "field": "Aust-born females(%)",
+          "title": "Australian-born females(%)",
+          "axis": {"format": "s",
+            "labelFontSize": 12},
+          "sort": "descending"
+        },
+        "color": {
+          "value": "#675193"  
+        },
+        "tooltip": [
+          { "field": "Age group(years)", "type": "nominal", "title": "Age group(years)" },
+          { "field": "Aust-born females(%)", "type": "quantitative", "title": "Australian-born females(%)" }
+        ]
+      }
+    },
+    {
+      "width": 20,
+      "view": {"stroke": null},
+      "mark": {
+        "type": "text",
+        "align": "center"
+      },
+      "encoding": {
+        "y": {
+          "field": "Age group(years)", 
+          "type": "ordinal", 
+          "axis": null, 
+          "sort": "descending"
+        },
+        "text": {
+          "field": "Age group(years)", 
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "Age group(years)", 
+          "title": null,
+          "axis": null, 
+          "sort": "descending"
+        },
+        "x": {
+          "aggregate": "sum", 
+          "field": "OS-born females(%)",
+          "title": "Overseas-born females(%)",
+          "axis": {"format": "s",
+            "labelFontSize": 12}
+        },
+        "color": {
+          "value": "#ca8861"  
+        },
+        "tooltip": [
+          { "field": "Age group(years)", "type": "nominal", "title": "Age group(years)" },
+          { "field": "OS-born females(%)", "type": "quantitative", "title": "Overseas-born females(%)" }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": false}
+  }
+}

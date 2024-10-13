@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A population pyramid for Australia-born and overseas-born males.",
+  "data": { 
+    "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/data/Australia's_population_born_Australia_overseas.csv"
+  },
+  "spacing": 0,
+  "hconcat": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "Age group(years)", 
+          "axis": null, 
+          "sort": "descending"
+        },
+        "x": {
+          "aggregate": "sum", 
+          "field": "Aust-born males(%)",
+          "title": "Australian-born males(%)",
+          "axis": {"format": "s",
+            "labelFontSize": 12},
+          "sort": "descending"
+        },
+        "color": {
+          "value": "#1f77b4"  
+        },
+        "tooltip": [
+          { "field": "Age group(years)", "type": "nominal", "title": "Age group(years)" },
+          { "field": "Aust-born males(%)", "type": "quantitative", "title": "Australian-born males(%)" }
+        ]
+      }
+    },
+    {
+      "width": 20,
+      "view": {"stroke": null},
+      "mark": {
+        "type": "text",
+        "align": "center"
+      },
+      "encoding": {
+        "y": {
+          "field": "Age group(years)", 
+          "type": "ordinal", 
+          "axis": null, 
+          "sort": "descending"
+        },
+        "text": {
+          "field": "Age group(years)", 
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "Age group(years)", 
+          "title": null,
+          "axis": null, 
+          "sort": "descending"
+        },
+        "x": {
+          "aggregate": "sum", 
+          "field": "OS-born males(%)",
+          "title": "Overseas-born males(%)",
+          "axis": {"format": "s",
+            "labelFontSize": 12}
+        },
+        "color": {
+          "value": "#2ca02c"  
+        },
+        "tooltip": [
+          { "field": "Age group(years)", "type": "nominal", "title": "Age group(years)" },
+          { "field": "OS-born males(%)", "type": "quantitative", "title": "Overseas-born males(%)" }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": false}
+  }
+}
+

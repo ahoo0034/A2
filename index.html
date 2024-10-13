@@ -3,27 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Australia's Population</title>
+    <title >Australia's Population</title>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <h1>Population Data Visualizations</h1>
+<body style="background-color: #ADD8E6;">
+    <h1 class="title-font">Australia's Changing Population</h1>
+    <p>
 
-    <!-- Container for the first Vega-Lite graph -->
-    <h2>Population by Country</h2>
-    <div id="population_by_country"></div>
+    </p>
+    <!-- <h2 class="text-center">Population of each State in 2023</h2> -->
+    
+    <div style="display: flex; align-items: center; justify-content: center;">
+      <div id="population_change" style="flex: 1;"></div>
+      <div class= "text-font">
+          <p>Australia's population is growing primarily due to a combination of natural increase and net 
+            overseas migration. Natural increase occurs when the number of births exceeds the number of deaths, 
+            while overseas migration contributes significantly, with skilled workers and international students 
+            choosing to settle in Australia for its economic opportunities and high quality of life. Certain 
+            states, such as New South Wales and Victoria, experience higher population growth compared to others 
+            like Tasmania or the Northern Territory due to factors like urbanisation, availability of jobs, 
+            educational institutions, and lifestyle amenities. Major cities, particularly Sydney and Melbourne, 
+            attract more people due to their vibrant economies and diverse communities, leading to a concentration 
+            of growth in these regions while more rural areas may see stagnation or decline.</p> 
+            
+          <p>The graph on the left illustrates the population of each state in 2023.</p>
+      </div>
+  </div>
 
-    <!-- Container for the second Vega-Lite graph -->
-    <h2>Population Change Over Time</h2>
-    <div id="population_change"></div>
+    <h2 class="text-center">Chloropleth Map of Immigrants to Australia by Country (2013 and 2023)</h2>
+    <div id="graph"; style="display: block; margin-left: 3%; width: 80%;"></div>
+    <p class="text-paragraph">
+      Between 2013 and 2023, Australia experienced significant increases in immigration from several 
+      countries, notably India, which saw a remarkable rise from 378,480 to 845,800 immigrants. 
+      Similarly, immigration from China and the Philippines also grew, with numbers rising from 432,400 
+      to 655,760 and from 218,870 to 361,860, respectively. Other countries like Nepal and Vietnam 
+      demonstrated substantial increases as well, with Nepal's immigration figures jumping from 34,750 
+      to 179,050. This trend highlights Australia's evolving demographic landscape, reflecting its appeal 
+      as a destination for migrants seeking opportunities, safety, and a better quality of life.
+    </p>
 
-    <h2>Australian and Overseas Birth population of females</h2>
-    <div id="birth_population_female"></div>
+    <div class="container">
+        <div id="graph-container" style="display: flex; justify-content: space-between;"></div>
+        <div id="population_by_country" style="flex: 1; padding: 10px;"></div>
+        <div id="resident_population_state_territory" style="flex: 1; padding: 10px;"></div>
+    
+        <!-- Container for the graph -->
+        <!-- <div id="resident_population_state_territory"></div> -->
+        <!-- Checkboxes for selecting states/territories -->
+        <form class="filter"; id="state-filter">
+        <input type="checkbox" id="nsw" value="NSW" checked>
+        <label for="nsw">New South Wales</label><br>
+        <input type="checkbox" id="vic" value="VIC" checked>
+        <label for="vic">Victoria</label><br>
+        <input type="checkbox" id="qld" value="QLD" checked>
+        <label for="qld">Queensland</label><br>
+        <input type="checkbox" id="wa" value="WA" checked>
+        <label for="wa">Western Australia</label><br>
+        <input type="checkbox" id="sa" value="SA" checked>
+        <label for="sa">South Australia</label><br>
+        <input type="checkbox" id="tas" value="TAS" checked>
+        <label for="tas">Tasmania</label><br>
+        <input type="checkbox" id="act" value="ACT" checked>
+        <label for="act">ACT</label><br>
+        <input type="checkbox" id="nt" value="NT" checked>
+        <label for="nt">Northern Territory</label>
+        </form>
 
-    <h2>Australian and Overseas Birth population of males</h2>
-    <div id="birth_population_male"></div>
+        
+    </div>
+    <h2 class="text-center">Population Distribution by Age Group: Australian-Born vs. Overseas-Born</h2>
+<div id="graph-container" style="display: flex; justify-content: center; width: 80%; margin: 0 auto;">
+    <div id="birth_population_male" style="flex: 1; padding-right: 30px;"></div>
+    <div id="birth_population_female" style="flex: 1; padding-right: 30px;"></div>
+</div>
+
+
+    <h2 class="text-center">Analyzing Birth and Death Rates Across States: 2021 and 2022</h2>
+<div style="display: flex; align-items: center;"> <!-- Changed from flex-start to center -->
+    <div id="births_deaths" style="flex: 1;"></div>
+    <div class="text-font" style="flex: 1; padding-left: 30px;">
+        <p style="margin: 0;">From 2021 to 2022, 
+        New South Wales (NSW) exhibited higher birth rates due to its population density, 
+        diverse communities, and strong economic opportunities. In contrast, other states like Victoria 
+        and Queensland experienced rising death rates alongside declining births, indicating aging 
+        populations and economic challenges. States such as South Australia and Tasmania showed similar 
+        trends, influenced by local economic conditions and family support access. Overall, these patterns 
+        reflect the complex interplay of demographic changes and regional factors affecting population 
+        dynamics across Australia.</p>
+    </div>
+</div>
+
+
+    
+
+    <script type="text/javascript">
+        // Function to load external JSON specification
+        async function fetchSpec() {
+          const response = await fetch('resident_population_state_territory.vg.json');
+          return response.json(); // Return the parsed JSON
+        }
+      
+        // Function to filter the chart based on selected states
+        async function updateChart() {
+          const selectedStates = Array.from(document.querySelectorAll('#state-filter input:checked'))
+            .map(checkbox => checkbox.value);
+      
+          // Fetch the external JSON spec
+          const spec = await fetchSpec();
+      
+          // Add a filter to the spec based on the selected states
+          const filteredSpec = {
+            ...spec, // Copy the base spec
+            "transform": [
+              {
+                "filter": {"field": "state", "oneOf": selectedStates} // Filter data based on selected states
+              }
+            ]
+          };
+      
+          // Re-render the chart with the filtered data
+          vegaEmbed('#resident_population_state_territory', filteredSpec).catch(console.error);
+        }
+      
+        // Attach event listeners to all checkboxes
+        document.querySelectorAll('#state-filter input').forEach(checkbox => {
+          checkbox.addEventListener('change', updateChart);
+        });
+      
+        // Initial rendering of the chart
+        updateChart();
+      </script>
+    <script type="text/javascript">
+      // Function to update the Vega-Lite chart
+      function updateChart() {
+          // Re-render the Vega-Lite chart using the current parameters
+          vegaEmbed('#population_change', 'population_change.vg.json').then(function(result) {
+          }).catch(console.error);
+      }
+  
+      const minSlider = document.querySelector('input[name="MinYear"]');
+      const maxSlider = document.querySelector('input[name="MaxYear"]');
+
+      // Add event listeners for slider changes
+      minSlider.addEventListener('input', updateChart);
+      maxSlider.addEventListener('input', updateChart);
+  </script>
+  
 
     <script type="text/javascript">
         // Embed the first Vega-Lite chart (population_by_country.vg.json)
@@ -31,10 +160,14 @@
             console.log("Population by Country graph loaded successfully.");
         }).catch(console.error);
 
-        // Embed the second Vega-Lite chart (population_change.vg.json)
-        vegaEmbed('#population_change', 'population_change.vg.json').then(function(result) {
-            console.log("Population Change graph loaded successfully.");
+        vegaEmbed('#graph', 'graph.vg.json').then(function(result) {
+            console.log("Proportion by Country loaded successfully.");
         }).catch(console.error);
+
+        // Embed the second Vega-Lite chart (population_change.vg.json)
+        // vegaEmbed('#population_change', 'population_change.vg.json').then(function(result) {
+        //     console.log("Population Change graph loaded successfully.");
+        // }).catch(console.error);
 
         vegaEmbed('#birth_population_female', 'birth_population_female.vg.json').then(function(result) {
             console.log("Population Change graph loaded successfully.");
@@ -42,6 +175,10 @@
 
         vegaEmbed('#birth_population_male', 'birth_population_male.vg.json').then(function(result) {
             console.log("Population Change graph loaded successfully.");
+        }).catch(console.error);
+
+        vegaEmbed('#births_deaths', 'births_deaths.vg.json').then(function(result) {
+            console.log("resident_population_state_territory graph loaded successfully.");
         }).catch(console.error);
     </script>
 </body>

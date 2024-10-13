@@ -1,0 +1,48 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/data/deaths_births.csv",
+      "format": {"type": "csv"}
+    },
+    "width": 400,
+    "height": 300,
+    "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 100
+      },
+    "encoding": {
+      "x": {
+        "field": "births",
+        "type": "quantitative",
+        "axis": {"title": "Number of Births"}
+      },
+      "y": {
+        "field": "deaths",
+        "type": "quantitative",
+        "axis": {"title": "Number of Deaths"}
+      },
+      "color": {
+        "field": "state",
+        "type": "nominal",
+        "legend": {
+            "title": "State",
+            "labelFontSize": 14, 
+              "titleFontSize": 12}
+      },
+      "shape": {"field": "year", "type": "nominal",
+        "legend": {
+                "title": "Year",
+                "labelFontSize": 14, 
+                "titleFontSize": 12,
+                "symbolSize": 100}
+        },
+      "tooltip": [
+        {"field": "state", "type": "nominal", "title": "State"},
+        {"field": "year", "type": "nominal", "title": "Year"},
+        {"field": "deaths", "type": "quantitative", "title": "Deaths"},
+        {"field": "births", "type": "quantitative", "title": "Births"}
+      ]
+    }
+  }
+  

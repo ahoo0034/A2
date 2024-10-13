@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": { "text": "Distribution of Overseas-Born Residents Across States and Territories" },
+  "data": {
+      "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/data/resident_population_state_territory.csv",
+    "format": {"type": "csv"}
+  },
+  "width": 300,
+  "height": 250,
+  
+  "mark": {
+    "type": "circle",
+    "opacity": 0.8,
+    "stroke": "black",
+    "strokeWidth": 1
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "axis": {"format": "d",
+          "grid": false,
+          "tickCount": 5, 
+          "values": [2001, 2006, 2011, 2016, 2021]},
+      "scale": {"domain": [2001, 2021]}  
+    },
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "axis": {"title": "", "labelFontSize": 12}
+    },
+    "size": {
+      "field": "proportion",
+      "type": "quantitative",
+      "title": "Proportion (%)",
+      "legend": {"clipHeight": 10},
+      "scale": {"rangeMax": 300}
+    },
+    "color": {
+      "field": "state",
+      "type": "nominal",
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "state", "type": "nominal", "title": "State"},
+      {"field": "year", "type": "quantitative", "title": "Year"},
+      {"field": "proportion", "type": "quantitative", "title": "Proportion (%)"}
+    ]
+  }
+}

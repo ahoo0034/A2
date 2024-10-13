@@ -1,0 +1,37 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": { "text": "Population in each State in 2023" },
+    "data": {
+        "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/data/population_change.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+        "x": {
+            "field": "Population", 
+            "type": "quantitative", 
+            "title": "Population ('000)",
+            "axis": {
+                "labelFontSize": 16 
+            }
+        },
+        "y": {
+            "field": "States", 
+            "type": "nominal", 
+            "title": "States", 
+            "axis": {
+                "labelFontSize": 14  
+            }
+        },
+        "color": {
+            "field": "States",
+            "type": "nominal"
+        },
+        "tooltip": [
+            { "field": "States", "type": "nominal", "title": "State" },
+            { "field": "Population", "type": "quantitative", "title": "Population ('000)" },
+            { "field": "Change over previous year (%)", "type": "quantitative", "title": "Change (%)" }
+        ]
+    },
+    "width": 500,  
+    "height": 400
+}
