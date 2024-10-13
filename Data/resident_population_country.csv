@@ -1,11 +1,16 @@
-﻿id,Country code,Country,2013(000),%(c),2023(000),%(c)
-1,GBR,England,1012.78,4.4,961.57,3.6
-2,IND,India,378.48,1.6,845.80,3.2
-3,CHN,China,432.40,1.9,655.76,2.5
-4,NZL,New zealand,585.39,2.5,598.09,2.2
-5,PHL,Philippines,218.87,0.9,361.86,1.4
-6,VNM,Vietnam,219.94,1.0,298.96,1.1
-7,ZAF,South Africa,172.17,0.7,214.79,0.8
-8,MYS,Malaysia,138.37,0.6,180.47,0.7
-9,NPL,Nepal,34.75,0.2,179.05,0.7
-10,ITA,Italy,200.67,0.9,158.99,0.6
+﻿id,Country code,Country,2013(000),2023(000)
+1,GBR,England,1012.78,961.57
+2,IND,India,378.48,845.80
+3,CHN,China,432.40,655.76
+4,NZL,New zealand,585.39,598.09
+5,PHL,Philippines,218.87,361.86
+6,VNM,Vietnam,219.94,298.96
+7,ZAF,South Africa,172.17,214.79
+8,MYS,Malaysia,138.37,180.47
+9,NPL,Nepal,34.75,179.05
+10,ITA,Italy,200.67,158.99
+11,PAK,Pakistan,46.91,120.44
+12,THA, Thailand,57.41,109.98
+13,LKA, Sri Lanka,110.67,158.29
+14,COL,Colombia,16.44,63.01
+15,BRA,Brazil,20.33,66.76
