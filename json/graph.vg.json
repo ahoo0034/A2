@@ -37,7 +37,7 @@
                 "lookup": "properties.ADM0_A3",
                 "from": {
                   "data": {
-                    "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/data/resident_population_country.csv",
+                    "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/Data/resident_population_country.csv",
                     "format": {"type": "csv"}
                   },
                   "key": "Country code",
@@ -110,7 +110,7 @@
                 "lookup": "properties.ADM0_A3",
                 "from": {
                   "data": {
-                    "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/data/resident_population_country.csv",
+                    "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/Data/resident_population_country.csv",
                     "format": {"type": "csv"}
                   },
                   "key": "Country code",

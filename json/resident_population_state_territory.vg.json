@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": { "text": "Distribution of Overseas-Born Residents Across States and Territories" },
   "data": {
-      "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/data/resident_population_state_territory.csv",
+      "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/Data/resident_population_state_territory.csv",
     "format": {"type": "csv"}
   },
   "width": 300,

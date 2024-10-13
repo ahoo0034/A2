@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": { "text": "Stacked Line Graph: Australian-born vs Overseas-born Populations (in Millions)" },
   "data": {
-    "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/data/proportion_born_overseas.csv",
+    "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/Data/proportion_born_overseas.csv",
     "format": { "type": "csv" }
   },
   "params": [

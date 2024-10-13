@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": { "text": "Population in each State in 2023" },
     "data": {
-        "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/data/population_change.csv"
+        "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/Data/population_change.csv"
     },
     "mark": "bar",
     "encoding": {

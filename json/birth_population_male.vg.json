@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A population pyramid for Australia-born and overseas-born males.",
   "data": { 
-    "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/data/Australia's_population_born_Australia_overseas.csv"
+    "url": "https://raw.githubusercontent.com/ahoo0034/A2/refs/heads/main/Data/Australia's_population_born_Australia_overseas.csv"
   },
   "spacing": 0,
   "hconcat": [
